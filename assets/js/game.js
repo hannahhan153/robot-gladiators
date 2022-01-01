@@ -1,14 +1,4 @@
 
-
-// You can also log multiple values at once like this console.log(playerInfo.name, playerInfo.attack, playerInfo.health);
-
-
-
-//console.log(enemy.names);
-//console.log(enemy.names.length);
-//console.log(enemy.names[0]);
-//console.log(enemy.names[3]);
-
 // function to generate a random numeric value
 var randomNumber = function (min, max) {
     var value = Math.floor(Math.random() * (max - min + 1) + min);
@@ -78,6 +68,7 @@ var fight = function (enemy) {
         }
     }
 };
+
 // function to start a new game
 var startGame = function () {
     // reset player stats
@@ -186,7 +177,20 @@ var shop = function () {
     }
 };
 
+//function to set name
+var getPlayerName = function () {
+    var name = "";
+
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
+
 var playerInfo = {
+    name: getPlayerName(),
     name: window.prompt("What is your robot's name?"),
     health: 100,
     attack: 10,
@@ -232,6 +236,11 @@ var enemyInfo = [
         attack: randomNumber(10, 14)
     }
 ];
+
+console.log(enemyInfo);
+console.log(enemyInfo[0]);
+console.log(enemyInfo[0].name);
+console.log(enemyInfo[0]['attack']);
 
 // start the game when the page loads
 startGame();
